@@ -1,0 +1,2664 @@
+#include <iostream>
+
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float length;
+	float time;
+
+	cout << "Введите длину дистанции (м):";
+	cin >> length;
+	cout << "Введите время (минут.секунд):";
+	cin >> time;
+	cout << "Вы бежали со скоростью "<< (length / 1000) / (((static_cast<int>(time) * 60) + ((time - static_cast<int>(time)) * 100)) / 3600) << "км / час";
+}
+
+2
+
+#include <iostream>
+
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int value;
+	int result=0;
+
+	cout << "Введите количество суммируемых чисел:";
+	cin >> value;
+	int j=0;
+
+	for (int i = 1; i <= value; i++)
+	{
+		j += 2;
+		result += j;
+	}
+
+	cout << "Сумма первых "<< value <<" целых положительных четных чисел равна "<< result;
+}
+
+
+задание 4
+
+
+задача 1
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float value;
+	cout << "Введите расстояние в верстах : ";
+	
+	cin >> value;
+
+	cout << "100 верст = " << value * 1.0668;
+	
+}
+
+
+задача 2
+
+#include <iostream>
+#include <vector>
+#include <array>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	int length;
+
+	cout << "Введите количество чисел последовательности :  ";
+	cin >> length;
+
+	float* array = new float[length];
+	
+	
+	
+
+	cout << "Введите последовательность :  ";\
+		for (int i =0; i<length; i++)
+			cin >> array[i];
+	
+	float value=0;
+	float min = array[0];
+	float max = 0;
+	for (int i = 0; i < length; i++) {
+		value +=array[i];
+		if (min > array[i])
+			min = array[i];
+
+		if (max < array[i])
+			max = array[i];
+	}
+
+	cout << "Среднее арифметическое : "<< value/float(length) <<'\n';
+	cout << "Минимальное число :  "<< min <<'\n';
+	cout << "Максимальное число :  "<< max <<'\n';
+
+	delete[] array;
+	array = nullptr;
+}
+
+
+задача 3
+
+#include <iostream>
+#include <vector>
+#include <array>
+#include <string>
+
+using namespace std;
+
+int change(string& str)
+{
+	int x=0;
+	for (int i = 0; i < str.size(); i++)
+	{
+		int y = (str[i] - '0');
+		if (i >= 1)
+		{
+			x = x * 10 + y;
+		}
+		else
+		{
+			x = y;
+		}
+	}
+	return x;
+}
+
+void massChenge(vector <int>& Myarray, string& mass)
+{
+
+	string str;
+	int masSize = mass.size();
+	for (int i = 0; i <= masSize; i++)
+	{
+		if (mass[i] == ' ')
+		{
+			Myarray.push_back(change(str));
+			str.clear();
+		}
+		else
+		{
+			str += mass[i];
+			if (i == masSize - 1)
+			{
+				Myarray.push_back(change(str));
+			}
+		}
+	}
+}
+
+
+void massSort(vector <int>& Myarray)
+{
+	for (int i = 0; i < Myarray.size(); i++)
+	{
+		for (int j = i + 1; j > 0; j--)
+		{
+			if (Myarray[j] < Myarray[j - 1]) 
+			{
+				int x = Myarray[j - 1];
+				Myarray[j - 1] = Myarray[j];
+				Myarray[j] = x;
+
+			}
+			else
+				break;
+		}
+	}
+
+}
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	vector <int> Myarray;
+	string mass;
+	string mass2;
+	cout << "ВВведите элементы первого массива:  ";
+	getline(cin, mass);
+	cout << mass << '\n';
+	cout << mass.size() << '\n';
+	cout << "Введите элементы второго массива: ";
+	getline(cin, mass2);
+	cout << mass2 << '\n';
+	cout << mass2.size() << '\n';
+
+	massChenge(Myarray, mass);
+	massChenge(Myarray, mass2);
+	
+	cout << "Массив-результат: ";
+	for (auto& element : Myarray)
+		cout << element;
+
+	for (int i = 0; i < Myarray.size(); i++)
+	{
+		for (int j = i + 1; j > 0; j--)
+		{
+			if (Myarray[i+1] < Myarray[j - 1])
+			{
+				int x = Myarray[j - 1];
+				Myarray[j - 1] = Myarray[j];
+				Myarray[j] = x;
+				break;
+			}
+			if (Myarray[i + 1] == Myarray[j - 1])
+				break;
+		}
+	}
+
+	cout << "Массив-результат: ";
+	for (auto& element : Myarray)
+		cout << element << " ";
+
+
+}
+
+
+
+
+задание 5
+
+
+задача 1
+
+#include <iostream>
+#include <vector>
+#include <array>
+#include <string>
+
+using namespace std;
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int x;
+	cout << "Введите временной интервал (в минутах):";
+	cin >> x;
+	cout << x << " минут = " << x / 60 << "ч " << x % 60 << " мин";
+	return 0;
+
+}
+
+
+задача 2
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float x;
+	cout << "Введите цену 1 кг яблок: ";
+	cin >> x;
+
+	cout << std::setw(7) << std::left << "Вес(г)"<<"Стоимость(руб.)"<<'\n';
+
+	int value=100;
+	for (int i = 1; i <= 10; i++)
+	{
+		cout << std::setw(7) << std::left << setprecision(4) << value*i<<x*(i*0.1) << '\n';
+	}
+
+	return 0;
+
+}
+
+задача 3
+
+
+
+#include <windows.h>
+#include<iostream>
+
+
+int main(){
+    using namespace std;
+    setlocale(LC_ALL, "Russian");
+
+
+    int x;
+    cout << "введите колличество секунд: ";
+    cin >> x;
+
+int i = 1;
+while (i < x)
+{
+    Sleep(1000);    //задержка в 1000 миллисекунд (1 секунда)
+    std::cout <<i<<"..." << std::endl;
+    i++;
+}
+
+
+
+}
+
+
+задание 6
+
+
+задача 1
+
+#include<iostream>
+#include <string>
+#include<vector>
+using namespace std;
+
+int change(string& str)
+{
+	int x = 0;
+	for (int i = 0; i < str.size(); i++)
+	{
+		int y = (str[i] - '0');
+		if (i >= 1)
+		{
+			x = x * 10 + y;
+		}
+		else
+		{
+			x = y;
+		}
+	}
+	return x;
+}
+
+
+void massChenge(vector <int>& Myarray, string& mass)
+{
+
+	string str;
+	int masSize = mass.size();
+	for (int i = 0; i <= masSize; i++)
+	{
+		if (mass[i] == ' ')
+		{
+			Myarray.push_back(change(str));
+			str.clear();
+		}
+		else
+		{
+			str += mass[i];
+			if (i == masSize - 1)
+			{
+				Myarray.push_back(change(str));
+			}
+		}
+	}
+}
+
+int main() {
+
+    setlocale(LC_ALL, "Russian");
+
+
+    int x;
+    string str;
+    cout << "Введите 2 целых числа: ";
+
+    getline(cin, str);
+	vector <int> Myarray;
+
+	massChenge(Myarray, str);
+	
+	if (Myarray[0] < Myarray[1])
+		cout << Myarray[0] << " меньше " << Myarray[1];
+	else if (Myarray[0] > Myarray[1])
+		cout << Myarray[1] << " меньше " << Myarray[0];
+	else if (Myarray[0] = Myarray[1])
+		cout << Myarray[0] << " равно " << Myarray[1];
+
+
+}
+задача 2
+
+#include<iostream>
+#include <string>
+#include <windows.h>
+using namespace std;
+
+
+int main() {
+
+    setlocale(LC_ALL, "Russian");
+
+    
+    string str;
+    int x = 0;
+    cout << "Введите перложение для вывода в «телеграфном» стиле: ";
+    getline(cin, str);
+
+    while (x< str.size())
+    {
+        Sleep(500);
+        cout << str[x++];
+    }
+
+
+}
+
+задача 3
+
+
+
+#include<iostream>
+#include <string>
+#include <windows.h>
+#include<list>
+#include <iomanip>
+#include<ctime>
+#include<random>
+
+using namespace std;
+
+
+int GlobalNumber=0;
+
+struct Bilet
+{
+    int Number;
+    string Adress;
+    string Name;
+    string Date;
+    Bilet(int va=0, string x = "j", string v = "f", string y = "h") :Number(va),Adress(x), Name(v), Date(y)
+    {
+
+    }
+
+    friend std::ostream& operator<< (std::ostream& out, const Bilet& Bilet);
+};
+
+std::ostream& operator<< (std::ostream& out, const  Bilet& Bilet)
+{
+    // Поскольку operator<< является другом класса Point, то мы имеем прямой доступ к членам Point
+    out << std::setw(7) << std::left << Bilet.Number<< std::setw(7) << std::left << Bilet.Adress << std::setw(7) << std::left << Bilet.Name << std::setw(7) << std::left << Bilet.Date;
+
+    return out;
+}
+
+Bilet Push()
+{
+    setlocale(LC_ALL, "Russian");
+    int Numbere= GlobalNumber++;
+    string Adress;
+    string Name;
+    string Date;
+    cout << "введите ФИО: ";
+    cin>> Name;
+    cout << "введите дату: ";
+   cin>> Date;
+    cout << "введите адрес: ";
+   cin>> Adress;
+    return Bilet (Numbere, Adress, Name, Date);
+}
+
+void print(list <Bilet>& bilet)
+{
+    setlocale(LC_ALL, "Russian");
+    cout << std::setw(7) << std::left << "номер" << std::setw(7) << std::left << "адрес" << std::setw(7) << std::left << "имя" << std::setw(7) << std::left << "дата"<< '\n';
+    for (auto& var : bilet)
+    {
+      cout << var << '\n';
+    }
+}
+
+int main() {
+
+    setlocale(LC_ALL, "Russian");
+    
+    int x = 1;
+    list <Bilet> Bilety{ Bilet(1), Bilet(2), Bilet(3), Bilet(4), Bilet(5) };
+    GlobalNumber = (Bilety.size()+1);
+    list <Bilet>::iterator c1_Iter, c2_Iter;
+
+
+
+    while (x)
+    {
+        cout << "1 - добавление заявок"<<"\n";
+        cout << "2 - удаление заявок" << "\n";
+        cout << "3 - просмотр всех заявок" << "\n";
+        cout << "0 - выход из программы" << "\n";
+        cout << "Твой выбор, сука: ";
+        cin >> x;
+        switch (x)
+        {
+        case(1):
+            Bilety.push_back(Push()); break;
+        case(2):
+            cout << "выберите номер билета для удаления: " << "\n";
+            int y;
+            cin >> y;
+            for (c1_Iter = Bilety.begin(); c1_Iter != Bilety.end(); c1_Iter++)
+            {
+                if (y == c1_Iter->Number) {
+                    Bilety.erase(c1_Iter);
+                    break;
+                }
+            }
+            print(Bilety);
+            break;
+        case(3):
+            print(Bilety); break;
+        }
+    }
+
+
+}
+
+задание 6
+
+
+задача 1
+
+#include <iostream>
+#include <Windows.h>
+#include <ctime>    
+using namespace std;
+
+int main() 
+{
+	SYSTEMTIME st;
+	while (true)
+	{
+		GetLocalTime(&st);
+		cout << st.wHour << ":" << st.wMinute << ":" << st.wSecond;
+		Sleep(998);
+		system("cls");
+	}
+
+
+}
+задача 2
+
+#include <iostream>
+ 
+using namespace std;
+
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	string str;
+	cout << "Введите строку: ";
+	cin >> str;
+	for (auto& value : str) {
+		if (value == '.') {
+			cout << str << " не является целым числом";
+			return 0;
+		}
+	}
+	cout << str << " является целым числом";
+	return 0;
+}
+
+задача 3
+
+#include <iostream>
+#include<vector>
+#include<iomanip>
+#include <fstream>
+
+using namespace std;
+
+struct Student {
+	string Name;
+	int Mat;
+	int Fiz;
+	int Inf;
+	Student(string n=" ", int m=0, int f=0, int i=0) : Name(n), Mat(m), Fiz(f), Inf(i)
+	{
+
+	}
+	friend std::ostream& operator<< (std::ostream& out, const Student& student);
+
+	int Sredn() {
+		return ((Mat + Fiz + Inf) / 3);
+	}
+};
+
+std::ostream& operator<< (std::ostream& out, const  Student& student)
+{
+	out << std::setw(9) << std::left << student.Name << std::setw(6) << std::left << student.Mat << std::setw(5) << std::left << student.Fiz << std::setw(5) << std::left << student.Inf;
+
+	return out;
+}
+
+void Print(vector <Student>& student)
+{
+	cout << std::setw(9) << std::left << "ФИО" << std::setw(6) << std::left << "Матеш" << std::setw(5) << std::left << "Физа" << std::setw(5) << std::left << "Инфа" << '\n';
+	for (auto& value : student)
+	{
+		cout << value<<'\n';
+	}
+
+}
+
+void setStudent(std::vector<Student>& student)
+{
+	using namespace std;
+	ifstream text("input_data.txt");
+	setlocale(LC_ALL, "Russian");
+
+	// Если мы не можем открыть этот файл для чтения его содержимого,
+	if (!text)
+	{
+		// то выводим следующее сообщение об ошибке и выполняем функцию exit()
+		cerr << "Uh oh, SomeText.txt could not be opened for reading!" << endl;
+		exit(1);
+	}
+
+	while (text)
+	{
+		std::string Name;
+		int Mat;
+		int Fiz;
+		int Inf;
+		text >> Name >> Mat >> Fiz >> Inf;
+		student.push_back(Student (Name, Mat, Fiz, Inf));
+	}
+	student.pop_back();
+	text.close();
+
+}
+
+void sortStudent(std::vector<Student>& student)
+{
+	Student x;
+	for (int i = 0; i < (student.size() - 1); i++)
+	{
+		for (int j = (i+1); j < student.size(); j++)
+		{
+			if (student[i].Sredn() < student[j].Sredn())
+				swap(student[i], student[j]);
+		}
+	}
+}
+
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	vector <Student> student;
+	
+	setStudent(student);
+	sortStudent(student);
+	Print(student);
+
+	return 0;
+}
+
+
+задание 8
+
+
+задача 1
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	int y;
+	int x;
+	cout << "Введите число из диапазона от 1 до 99: ";
+	cin >> y;
+
+	x= y%10;
+	if (x == 1)
+		cout << y << " копейка";
+	else if (x>1 && x<5)
+		cout << y << " копейки";
+	else if (x>4 && x<10 || x==0)
+		cout << y << " копеек";
+	return 0;
+}
+
+задача 2
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	string y;
+	string x;
+	cout << "Введите число: ";
+	cin >> y;
+	x = y;
+	int size = y.size();
+	for (int i = 0; i < y.size(); ++i)
+	{
+		x[--size] = y[i];
+	}
+
+	if (x==y)
+		cout << y << " является палиндромом";
+	else 
+		cout << y << " не является палиндромом";
+
+	return 0;
+}
+
+задача 3
+
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	int SrBall;
+	int ProfodBall;
+	int Stag;
+	cout << "Введите средний балл своей бумажки (3-5): ";
+	cin >> SrBall;
+	cout << "Введите свой стаж (0-5 лет): ";
+	cin >> Stag;
+
+	if (Stag == 0) {
+		cout << "вы не приняты, ваш средний балл: " << SrBall;
+		return 0;
+	}
+	else if (Stag == 1)
+		SrBall *= 13;
+	else if (Stag >= 2 && Stag <= 5)
+		SrBall *= 16;
+
+	if (SrBall>=45)
+		cout << "вы приняты, ваш средний балл: " << SrBall;
+	else 
+		cout << "вы не приняты, ваш средний балл: " << SrBall;
+
+	return 0;
+}
+
+задание 9
+
+
+задача 1
+
+#include <iostream>
+#include <string>
+
+void isLeap(int year) {
+	setlocale(LC_ALL, "Russian");
+	bool leap = (year % 100 == 0) ? (year % 400 == 0) : (year % 4 == 0);
+	leap ? std::cout << year << " год високосный " :
+		std::cout << year << " год не високосный";
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int year=3000;
+	std::string str;
+	while (year > 2000) {
+		std::cout << "введите год и эру: ";
+		std::cin >> year;
+		std::getline(std::cin, str);
+	}
+
+	isLeap(year);
+	return 0;
+}
+
+задача 2
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int change(string& str)
+{
+	int x = 0;
+	for (int i = 0; i < str.size(); i++)
+	{
+		int y = (str[i] - '0');
+		if (i >= 1)
+		{
+			x = x * 10 + y;
+		}
+		else
+		{
+			x = y;
+		}
+	}
+	return x;
+}
+
+void massChenge(vector <int>& Myarray, string& mass)
+{
+
+	string str;
+	int masSize = mass.size();
+	for (int i = 0; i <= masSize; ++i)
+	{
+		if (mass[i] == ' ')
+		{
+			Myarray.push_back(change(str));
+			str.clear();
+		}
+		else
+		{
+			str += mass[i];
+			if (i == masSize - 1)
+			{
+				Myarray.push_back(change(str));
+			}
+		}
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	std::vector<int> Myarray;
+	string str;
+
+	std::cout << "введите массив чисел через пробел: ";
+	getline(cin, str);
+	massChenge(Myarray, str);
+	for (auto val : Myarray)
+		std::cout << val << " ";
+
+	std::cout <<'\n' << "введите число для проверки: ";
+	int x;
+	cin >> x;
+
+	for (int i = 0; i < Myarray.size(); ++i)
+	{
+		if (Myarray[i] == x)
+		{
+			cout << "такое число есть";
+			return 0;
+		}
+	}
+
+	cout << "такого числа нет";
+
+}
+
+задача 3
+
+#include <iostream>
+#include <random>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+
+	int x;
+	int y;
+	int z;
+
+	random_device rd;   // non-deterministic generator
+	mt19937 gen(rd());  // to seed mersenne twister.
+	uniform_int_distribution<> dist(0, 4);
+
+	cout << "введите цифры через пробел: ";
+	cin >> x >> y >> z;
+	x = x + y + z;
+
+	y= dist(gen);
+
+	switch (y)
+	{
+	case(0):  z = 21; break;
+	case(1):  z = 24; break;
+	case(2):  z = 25; break;
+	case(3):  z = 23; break;
+	case(4):  z = 23; break;
+	}
+
+	if (z > x)
+		cout << "ты лох, проиграл " << x << " " << z;
+	else if (z < x)
+		cout << "красава " << x << " " << z;
+	else 
+		cout << "оба лохи "<<x<<" "<< z;
+}
+
+
+задание 10
+
+
+задача 1
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+float change(string& str)
+{
+
+	float x = 0;
+	for (int i = 0; i < str.size(); i++)
+	{
+		if (str[i] == '.')
+		{
+			for (int j = (i+1); j < str.size(); j++) {
+				float y = (str[j] - '0');
+
+				if (j== (i+1))
+					x = x + (y/10);
+				else if (j == (i + 2))
+					x = x + (y / 100);
+			}
+			return x;
+		}
+		else
+		{
+			float y = (str[i] - '0');
+			if (i >= 1)
+			{
+				x = x * 10 + y;
+			}
+			else
+			{
+				x = y;
+			}
+		}
+	}
+	return x;
+}
+
+void massChenge(vector <float>& Myarray, string& mass)
+{
+
+	string str;
+	int masSize = mass.size();
+	for (int i = 0; i <= masSize; ++i)
+	{
+		if (mass[i] == ' ')
+		{
+			Myarray.push_back(change(str));
+			str.clear();
+		}
+		else
+		{
+			str += mass[i];
+			if (i == masSize - 1)
+			{
+				Myarray.push_back(change(str));
+			}
+		}
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	vector <float> Myarray;
+	string str;
+	cout << "Введите последовательность дробных чисел: ";
+	getline(cin, str);
+	massChenge(Myarray, str);
+	float Arf=0;
+	for (auto val : Myarray)
+		Arf+= val;
+	cout << "Среднее арифметическое введенной последовательности: "<< Arf/Myarray.size();
+	
+}
+
+задача 2
+
+#include <iostream>
+
+using namespace std;
+
+
+bool happy(int x)
+{
+	int y=0;
+	int z=0;
+	for (int i = 1; i <= 6; ++i)
+	{
+		if (i <= 3)
+		{
+			y = y + (x % 10);
+			x = x / 10;
+		}
+		else
+		{
+			z = z + (x % 10);
+			x = x / 10;
+		}
+	}
+	return (y == z);
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	int x;
+	cout << "Введите число: ";
+	cin >> x;
+
+	if(happy(x))
+	cout << "Ваше число счастливое ";
+	else 
+	cout << "Ваше число не счастливое ";
+}
+
+задача 3
+
+#include <iostream>
+#include <iomanip>
+#include <array>
+#include <string>
+#include<vector>
+
+using namespace std;
+
+struct STUDENT {
+	string m_Name;
+	string m_Year;
+	array <int, 5> m_Rating;
+
+	STUDENT(string name="1", string year="1", array <int, 5> rating={1,1,1,1,1}) : m_Name(name), m_Year(year)
+	{
+		for(int i=0; i<5; ++i)
+		m_Rating[i] = rating[i];
+	}
+	friend std::ostream& operator<< (std::ostream& out, const STUDENT& student);
+	float average()
+	{
+		float x=0;
+		for (auto& val : m_Rating)
+			x += val;
+		return x / 5;
+	}
+};
+
+std::ostream& operator<< (std::ostream& out, const  STUDENT& student)
+{
+	out << "ФИО: " << student.m_Name << " Группа: " << student.m_Year << '\n'
+		<< std::setw(12) << std::left << "Математика:" << student.m_Rating[0] << '\n'
+		<< std::setw(12) << std::left << "Физика:" << student.m_Rating[1] << '\n'
+		<< std::setw(12) << std::left << "Геометрия:" << student.m_Rating[2] << '\n'
+		<< std::setw(12) << std::left << "Экономика:" << student.m_Rating[3] << '\n'
+		<< std::setw(12) << std::left << "Дрочильня:" << student.m_Rating[4] << '\n';
+
+	return out;
+}
+
+void sort(vector <STUDENT>& STUD)
+{
+	for (int i = 0; i < (STUD.size() - 1); i++)
+	{
+		for (int j = (i + 1); j < STUD.size(); j++)
+		{
+			if (STUD[i].m_Name[0] > STUD[j].m_Name[0])
+				swap(STUD[i], STUD[j]);
+		}
+	}
+}
+
+void insert(vector <STUDENT>& STUD)
+{
+	string str;
+	string str2;
+	array <int, 5> ar;
+	cout << "введите ФИО: ";
+	getline(cin, str);
+	cout << "введите Группу: ";
+	getline(cin, str2);
+	cout << "введите Оценки: ";
+	for (auto & val: ar)
+	cin >> val;
+	STUD.push_back(STUDENT(str, str2, ar));
+	sort(STUD);
+}
+
+void Print_Average(vector <STUDENT>& STUD)
+{
+	float x=0;
+	vector <STUDENT> STUD2;
+	for (auto& val : STUD)
+	{
+		x += val.average();
+	}
+	x /= STUD.size();
+
+	cout << '\n' << "студенты у ктортых ср балл выше " << x <<'\n';
+	for (auto& val : STUD)
+	{
+		if (val.average() >= x)
+			cout << val << '\n';
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+
+	vector <STUDENT> STUD = { STUDENT("b","1",{2,4,5,3,4}),STUDENT("a","2",{ 3,4,4,3,4 }),STUDENT("c","3",{ 5,4,3,3,2 }) };
+
+	sort(STUD);
+	for (auto& val : STUD)
+	{
+			cout << val << '\n';
+	}
+
+	insert(STUD);
+
+	for (auto& val : STUD)
+	{
+		cout << val << '\n';
+	}
+
+	Print_Average(STUD);
+	
+}
+
+
+задание 12
+
+
+
+задача 1
+
+#include <iostream>
+#include <string>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	string str;
+
+	cout << "Введите строку: ";
+	cin >> str;
+	reverse(str.begin(), str.end());
+	int x = str.size();
+	for (int i = 0; i < (str.size()/2); ++i)
+	{
+		swap(str[i], str[--x]);
+	}
+
+	cout << "Результат:  "<< str;
+
+}
+
+задача 2
+
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	int day;
+
+	cout << "Введите день: ";
+	cin >> day;
+
+
+	switch (day)
+	{
+	case(1):cout << day << " понедельник"; break;
+	case(2):cout << day << " вторник"; break;
+	case(3):cout << day << " среда"; break;
+	case(4):cout << day << " четверг"; break;
+	case(5):cout << day << " пятница"; break;
+	case(6):cout << day << " суббота"; break;
+	}
+
+	switch (day % 7)
+	{
+	case(0):cout << day << " воскресенье"; break;
+	case(1):cout << day << " понедельник"; break;
+	case(2):cout << day << " вторник"; break;
+	case(3):cout << day << " среда"; break;
+	case(4):cout << day << " четверг"; break;
+	case(5):cout << day << " пятница"; break;
+	case(6):cout << day << " суббота"; break;
+	}
+
+}
+
+--------------альтернатива--------------
+#include <iostream>
+#include <string>
+ 
+int main() {
+std::string week[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday",  "Saturday", "Sunday"};
+int num{0};
+while(num < 1 || num > 365) {
+	std::cout<<"Enter number from 1 until 365: ";
+	std::cin >> num;
+	if(std::cin.fail()) {
+		std::cin.clear();
+		std::cin.ignore(32767, '\n');
+		std::cout << "Error! Invalid input! Repeat input!\n";
+	}
+}
+int day = (num - 1) % 7;
+std::cout << "Number: " << num << " is: " << week[day];
+return 0;
+}
+
+задача 3
+
+#include <iostream>
+#include<random>
+#include<array>
+#include<vector>
+
+class Person
+{
+public:
+	std::string m_name;
+	short int m_age=0;
+	Person(std::string name="i") : m_name(name)
+	{
+		std::random_device rd;  
+		std::mt19937 gen(rd());  
+		std::uniform_int_distribution<> dist(10, 40);
+		m_age = dist(gen);
+	}
+
+	virtual void print()
+	{
+		std::cout << "что то не ак";
+	}
+};
+
+class Formals: public Person
+{
+public:
+	std::string m_type;
+	Formals(std::string name="i", std::string type = "i") :Person(name), m_type(type)
+	{
+	}
+	virtual void print()
+	{
+		std::cout << "Меня зовут "<< Person::m_name<<", мой возраст " <<Person::m_age<< " лет и я "<< m_type;
+	}
+};
+
+class NeFormals : public Person
+{
+public:
+	std::string m_type;
+	NeFormals(std::string name = "i", std::string type = "i") :Person(name), m_type(type)
+	{
+	}
+	virtual void print()
+	{
+		std::cout << "Меня зовут " << Person::m_name << ", мой возраст " << Person::m_age << " лет и я " << m_type;
+	}
+};
+
+class Reals : public Person
+{
+public:
+	std::string m_type;
+	Reals(std::string name = "i", std::string type = "i") :Person(name), m_type(type)
+	{
+	}
+	virtual void print()
+	{
+		std::cout << "Меня зовут " << Person::m_name << ", мой возраст " << Person::m_age << " лет и я " << m_type;
+	}
+};
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	NeFormals cc("Александр", "Неформал");
+	NeFormals vv("Андрей", "Неформал");
+	Reals cx("Анастасия", "Реалист");
+	Reals nn("Ирина", "Реалист");
+	Formals mm("Павел", "Формалист");
+	Person* per = &cc;
+
+	
+	Person* person1[1] {per};
+	std::array<Person*, 5> person{ &cc ,&vv, &cx, &nn, &mm};
+	std::array<Person*, 5> person1{ new Reals("Анастасия", "Реалист") };
+
+	for (auto& val : person)
+	{
+		val->print();
+		std::cout << '\n';
+	}
+
+	for (int i = 0; i < (person.size()-1); ++i)
+	{
+		std::string str;
+		if (person[i + 1]->m_age - person[0]->m_age <= 5)
+		{
+			str = "привет";
+		}
+		else
+			str = "здравствуйте";
+
+		std::cout << person[0]->m_name << ": " << str <<", " << person[i + 1]->m_name << "!" << '\n';
+
+		if (person[0]->m_age - person[i + 1]->m_age <= 5)
+		{
+			str = "привет";
+		}
+		else
+			str = "здравствуйте";
+		std::cout << person[i+1]->m_name << ": " << str << ", " << person[0]->m_name << "!" << '\n';
+	}
+	
+
+}
+
+
+
+
+задание 13
+
+
+задача 1
+
+#include <iostream>
+
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+
+	for (int i = 10; i <= 100; i +=2)
+	{
+		if (i % 5 == 0)
+			cout << i << '\n';
+	}
+
+}
+
+задача 2
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;;
+
+	int value = 0;
+
+	for (int i = 49049; i < 999999; ++i)
+	{
+		int sum1 = 0;
+		int sum2 = 0;
+		sum1 += i % 10;
+		sum1 += (i / 10) % 10;
+		sum1 += (i / 100) % 10;
+		sum2 += (i / 1000) % 10;
+		sum2 += (i / 10000) % 10;
+		sum2 += (i / 100000);
+
+		if (sum1 == sum2 && sum1 == 13)
+			++value;
+	}
+
+	cout << value;
+
+}
+
+задача 3
+
+#include <iostream>
+#include <random>
+#include <fstream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;;
+
+	ofstream text("text.txt");
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(0, 1);
+	int Reshka=0;
+	int Orel = 0;
+	for (int i = 0; i <= 100; ++i) {
+		int random;
+		random = dist(gen);
+		if (random == 0) {
+			text << "Решка, ";
+			++Reshka;
+		}
+		else
+		{
+			text << "Орел, ";
+			++Orel;
+		}
+	}
+	text.close();
+
+	cout << "Орел: " << Orel<<" Решка: " << Reshka;
+
+}
+
+
+задание 14
+
+
+
+задача 1
+
+#include <iostream>
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;;
+
+	cout << "введите количестов минут: ";
+	
+	int x;
+	cin >> x;
+	int Pow = 1;
+	for (int i = 1; i <= x; ++i)
+		Pow *= 2;
+
+	cout << "количество бактерий за это время: "<< Pow;
+}
+
+задача 2
+
+#include <iostream>
+
+int f(int h, int m, int s)
+{
+	
+	return h * 3600 + m * 60 + s;
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;;
+	int x, y, z;
+	cout << "введите количестов часов, минут, секунд: ";
+	cin >> x;
+	cin >> y;
+	cin >> z;
+
+	cout << "количество секунд с нчала дня "<< f(x,y,z);
+}
+
+задача 3
+
+#include <iostream>
+#include <random>
+#include <fstream>
+#include<iomanip>
+
+void GenRandValue()
+{
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(1, 72);
+	std::ofstream RandVal("text.txt");
+	int i = 0;
+	while (i++ < 10)
+	{
+		RandVal << dist(gen)<<" ";
+	}
+	RandVal.close();
+}
+
+void Print()
+{
+	std::ifstream RandVal("text.txt");
+	int i = 0;
+	std::cout.fill('*');
+	while (i++ < 10)
+	{
+		int Val;
+		RandVal>> Val;
+		std::cout <<"Число №"<< (i+1) <<" = " << Val << " "<< std::setw(Val+1) << std::right<< '\n';
+	}
+}
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;;
+	
+	GenRandValue();
+	Print();
+
+}
+
+
+задание 15
+
+
+
+задача 1
+
+#include <iostream>
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	string str;
+	cout << "введите строчку: ";
+	cin >> str;
+	int count=0;
+	for (int i = 0; str[i] != '\0'; ++i)
+		++count;
+
+	cout << "количество знаков: " << count;
+
+}
+
+задача 2
+
+#include <iostream>
+
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	using namespace std;
+	int year,sum;
+	cout << "введите год: ";
+	cin >> year;
+	cout << "введите сумму: ";
+	cin >> sum;
+
+	cout << "заработанные деньги: " << sum * pow(1.06, (2024 - year));
+	
+}
+
+задача 3
+
+#include <iostream>
+#include<random>
+#include <iomanip>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	string str;
+	cout << "введите слово: ";
+	cin >> str;
+	short int x = 1;
+	string str2 = str, srtMas = str;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(0, (str.size()-1));
+
+	for (int i = 0; i < str2.size(); ++i)
+	{
+		srtMas[i] = (i + '0');
+
+	}
+
+	cout << "[" << x << "] " << srtMas << "  " << str2 << std::setw(5);
+
+	while (++x)
+	{
+		
+
+		for (int i = 0; i < str2.size(); ++i)
+		{
+			int randNum = dist(gen);
+			swap(str2[i], str2[randNum]);
+			swap(srtMas[i], srtMas[randNum]);
+
+		}
+		cout << "[" << x << "] " << srtMas<<"  "<< str2 << std::setw(5);
+		if (x % 3 == 0)
+			cout << '\n';
+
+		if (str2 == str) 
+			break;
+		
+	}
+
+	
+}
+
+задание 17
+
+
+
+задача 1
+
+#include <iostream>
+#include<random>
+#include <iomanip>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(1, 10);
+	float value=0;
+
+	float array[10];
+
+	for (auto& val : array)
+	{
+		val = dist(gen);
+		cout << val << " ";
+		value += val;
+	}
+	cout << "serd arf " << value/10;
+	
+}
+
+задача 2
+
+#include <iostream>
+#include<random>
+#include <iomanip>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(1, 10);
+	int min=0;
+	int max = 0;
+	int array[10];
+
+	for (int i=0; i<10; ++i)
+	{
+		array[i] = dist(gen);
+		cout << array[i] << " ";
+		if (array[min] > array[i])
+			min = i;
+		if (array[max] < array[i])
+			max = i;
+	}
+
+	swap(array[min], array[max]);
+
+
+	cout << '\n';
+	for (auto& val : array)
+	{
+		cout << val <<" ";
+	}
+		
+	
+}
+
+задача 3
+
+#include <iostream>
+#include<random>
+#include <vector>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(1, 5);
+	
+	vector <int> mas;
+	while (mas.size() != 5) {
+		bool nal = true;
+		int value = dist(gen);
+		for (auto& val : mas)
+		{
+			if (val == value) {
+				nal = false;
+				break;
+			}
+		}
+		if (nal == true) {
+			mas.push_back(value);
+			int x = 0;
+			switch (value)
+			{
+			case(1):
+		
+				cout << "вопрос " << mas.size() << ") что такое курица?" << '\n'
+					<< "варианты ответа" << '\n'
+					<< "1) Рыба" << '\n'
+					<< "2) Насекомое" << '\n'
+					<< "3) Птица" << '\n'
+					<< "4) Земноводное" << '\n'
+					<< "5) Растение" << '\n'
+					<< "Ваш выбор :";
+				cin >> x;
+				if (x == 3)
+					cout << "молодес" << '\n';
+				else
+					cout << "долбоеб" << '\n';
+				break;
+			case(2):
+				
+				cout << "вопрос " << mas.size() << ") что такое Рыба?" << '\n'
+					<< "варианты ответа" << '\n'
+					<< "1) Рыба" << '\n'
+					<< "2) Насекомое" << '\n'
+					<< "3) Птица" << '\n'
+					<< "4) Земноводное" << '\n'
+					<< "5) Растение" << '\n'
+					<< "Ваш выбор :";
+				cin >> x;
+				if (x == 3)
+					cout << "молодес" << '\n';
+				else
+					cout << "долбоеб" << '\n';
+				break;
+			case(3):
+				
+				cout << "вопрос " << mas.size() << ") что такое Насекомое?" << '\n'
+					<< "варианты ответа" << '\n'
+					<< "1) Рыба" << '\n'
+					<< "2) Насекомое" << '\n'
+					<< "3) Птица" << '\n'
+					<< "4) Земноводное" << '\n'
+					<< "5) Растение" << '\n'
+					<< "Ваш выбор :";
+				cin >> x;
+				if (x == 3)
+					cout << "молодес" << '\n';
+				else
+					cout << "долбоеб" << '\n';
+				break;
+			case(4):
+				
+				cout << "вопрос " << mas.size() << ") что такое Земноводное?" << '\n'
+					<< "варианты ответа" << '\n'
+					<< "1) Рыба" << '\n'
+					<< "2) Насекомое" << '\n'
+					<< "3) Птица" << '\n'
+					<< "4) Земноводное" << '\n'
+					<< "5) Растение" << '\n'
+					<< "Ваш выбор :";
+				cin >> x;
+				if (x == 3)
+					cout << "молодес" << '\n';
+				else
+					cout << "долбоеб" << '\n';
+				break;
+			case(5):
+				
+				cout << "вопрос " << mas.size() << ") что такое Растение?" << '\n'
+					<< "варианты ответа" << '\n'
+					<< "1) Рыба" << '\n'
+					<< "2) Насекомое" << '\n'
+					<< "3) Птица" << '\n'
+					<< "4) Земноводное" << '\n'
+					<< "5) Растение" << '\n'
+					<< "Ваш выбор :";
+				cin >> x;
+				if (x == 3)
+					cout << "молодес" << '\n';
+				else
+					cout << "долбоеб" << '\n';
+				break;
+			}
+
+		}
+	}
+
+	
+	
+}
+
+
+задание 18
+
+
+
+задача 1
+
+
+
+задача 2
+
+#include <iostream>
+#include <vector>
+
+
+int main() {
+
+	using namespace std;
+	vector <int> mass{1,2,3,4,5,5,5,2,2,3};
+	auto it = mass.end();
+	for (auto Iter = mass.begin(); Iter != (mass.end() -1); ++Iter)
+	{
+		int sum=0;
+		for (auto Iter2 = Iter+1; Iter2 != mass.end(); ++Iter2)
+		{
+			if (*Iter == *Iter2) {
+				++sum;
+				if (sum == 2) {
+					mass.erase(Iter2);
+					break;
+				}
+			}
+		}
+	}
+
+	for (auto& val : mass)
+	{
+		cout << val << " ";
+	}
+}
+
+
+задача 3
+
+#include <iostream>
+#include<random>
+#include <vector>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(0,1);
+
+
+	int mass[18][36];
+	for (auto& val1 : mass)
+	{
+		for (auto& val2 : val1)
+		{
+			val2 = dist(gen);
+		}
+	}
+
+	int x,sum=0;
+	cout << "введите нужный вам вагон: ";
+	cin>> x;
+
+	for (int i = 0; i< 36; ++i)
+	{
+		if (mass[(x-1)][i] == 0) {
+			cout << "доступно место под номером: " << (i + 1)<<'\n';
+			++sum;
+		}
+	}
+	cout << "доступно мест: " <<sum << '\n';
+
+	for (auto& val1 : mass)
+	{
+		for (auto& val2 : val1)
+		{
+			cout << val2 << ", ";
+		}
+		cout << '\n';
+	}
+}
+
+
+
+задание 19
+
+
+
+задача 1
+
+
+
+задача 2
+
+
+
+задача 3
+
+#include <iostream>
+#include<random>
+#include <vector>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(0,7);
+
+	
+	int  mass[8][8];
+	int it = 0;
+	for (auto& val : mass)
+	{
+		int i = 1;
+		for (auto& val2 : val)
+		{
+			val2 = ++i;
+		}
+	}
+
+	for (auto& val : mass)
+	{
+		for (auto& val2 : val)
+		{
+			cout << val2 << ", " << "\t";
+		}
+		cout << '\n';
+	}
+
+	while (it!=64)
+	{
+		int x = dist(gen);
+		int y = dist(gen);
+		if (mass[x][y] != 0) {
+			++it;
+			int u;
+			cout << "пример " << it << ") "<< (x + 2) << " * "<< mass[x][y]<< " = ";
+			cin >> u;
+			if (u == ((x + 2) * mass[x][y]))
+			{
+				cout <<"правильный ответ" << '\n';
+			}
+			else 
+				cout << "не правильный ответ"<< "("<< (x + 2) * mass[x][y]<<")" << '\n';
+
+			mass[x][y] = 0;
+		}
+	}
+
+	for (auto& val : mass)
+	{
+		for (auto& val2 : val)
+		{
+			cout << val2  << ", " << "\t";
+		}
+		cout << '\n';
+	}
+}
+
+
+
+задание 20
+
+
+
+задача 1
+
+#include <iostream>
+#include<random>
+#include <vector>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	int day, mauth, year;
+	cout << "Введите цифрами дату (число месяц год): ";
+	cin >> day;
+	cin >> mauth;
+	cin >> year;
+	bool leap = (year % 100 == 0) ? (year % 400 == 0) : (year % 4 == 0);
+	switch (mauth)
+	{
+	case(1,3,5,7,8,10):
+		if (day == 31)
+		{
+			day = 1;
+			++mauth;
+		}
+		else
+			day++;
+		break;
+	case(2):
+		
+		if (day == 28 && !leap)
+		{
+			day = 1;
+			mauth = 3;
+		}
+		else if (day == 28 && leap)
+		{
+			++day;
+		}
+
+		break;
+	case(4,6,9,11):
+		if (day == 30)
+		{
+			day = 1;
+			++mauth;
+		}
+		else
+			day++;
+		break;
+	case(12):
+		if (day == 31)
+		{
+			day = 1;
+			mauth=1;
+			++year;
+		}
+		else
+			day++;
+		break;
+		
+	}
+	cout << "Завтра " << day << " " << mauth << " " << year;
+}
+
+
+
+задача 2
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <Windows.h>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	vector <char> mass;
+	int x,y;
+	cout << "введите число для прервода в 16ю систему: ";
+	cin >> x;
+
+	while (x != 0)
+	{
+		y=x%16;
+		x /= 16;
+		if (y < 10)
+		{
+			mass.push_back((y+'0'));
+		}
+		else
+		{
+			switch (y)
+			{
+				case(10):mass.push_back('A');
+				break;
+				case(11):mass.push_back('B');
+					break;
+				case(12):mass.push_back('C');
+					break;
+				case(13):mass.push_back('D');
+					break;
+				case(14):mass.push_back('E');
+					break;
+				case(15):mass.push_back('F');
+					break;
+			}
+		}
+ 
+	}
+
+	cout << "число в 16й систме: ";
+	std::reverse(mass.begin(), mass.end());
+	for (auto& val : mass)
+	{
+		cout << val;
+	}
+}
+
+
+
+задача 3
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <Windows.h>
+#include <random>
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+
+	int randVal=10;
+
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(1, randVal);
+	
+	int x=100;
+
+	while (true)
+	{
+		if (x == 1) {
+			cout << '\n';
+			cout << "Лошара, проиграл ";
+			break;
+		}
+		int player = 0;
+		cout << "количство спичек- "<< x<<'\n';
+		while (player > 10 || player < 1) {
+			cout << "введите количство спичек от 1 до " << randVal<< ": ";
+			cin >> player;
+		}
+		x -= player;
+
+		
+
+		if (x == 1) {
+			cout << '\n';
+			cout << "Ты выйграл....";
+			break;
+		}
+
+		int comp;
+
+		if (x <= 10) {
+			randVal = x - 1;
+			std::uniform_int_distribution<> dist(1, randVal);
+			comp = dist(gen);
+			cout << "соперник взял- " << comp << " спичек" << '\n';
+			x -= comp;
+		}
+		else {
+			
+			int comp = dist(gen);
+			cout << "соперник взял- " << comp << " спичек" << '\n';
+			x -= comp;
+
+		}
+		
+
+	}
+}
+
+
+
+
+задание 21
+
+
+
+задача 1
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <Windows.h>
+
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+
+	vector<int> mass{ 1, 1, 2, 4, 5, 9, 14, 22, 37, 54, 87, 90, 111, 243, 345 };
+	vector <int> resultt;
+	copy_if(mass.begin(), mass.end(), back_inserter(resultt), [](const int& resultt) {return resultt > 6; });
+	for (auto& val : resultt)
+	{
+		cout << val << " ";
+	}
+	int x;
+	cout << '\n';
+	cin >> x;
+	resultt.clear();
+	copy_if(mass.begin(), mass.end(), back_inserter(resultt), [x](const int& resultt) {return resultt < x; });
+	for (auto& val : resultt)
+	{
+		cout << val << " ";
+	}
+}
+
+
+
+задача 2
+
+#include <iostream>
+#include <random>
+#include <Windows.h>
+#include <string>
+
+
+
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+	std::random_device rd;
+	std::mt19937 gen(rd());
+	std::uniform_int_distribution<> dist(1, 3);
+	
+
+	while (true) {
+
+		string str;
+
+		cout << "введите вашход: ";
+
+		cin >> str;
+		transform(str.begin(), str.end(), str.begin(), tolower);
+		bool x;
+		switch (dist(gen))
+		{
+			//bumaga
+		case(1):if (str == "бумага") { cout << "Ничья"; x = false; }
+			   else if (str == "ножницы") { cout << "Ты выйграл, сопреник выбрал бумагу"; x = true; }
+			   else cout << "Ты проиргал, сопреник выбрал бумагу"; 
+			break;
+			//kamen
+		case(2):
+			if (str == "камень") { cout << "Ничья"; x = false; }
+			else if (str == "бумага") { cout << "Ты выйграл, сопреник выбрал камень"; x = true; }
+			else cout << "Ты проиргал, сопреник выбрал камень";
+			break;
+			//nognisi
+		case(3):
+			if (str == "ножницы") { cout << "Ничья"; x = false; }
+			else if (str == "камень") { cout << "Ты выйграл, сопреник выбрал ножницы"; x = true; }
+			else cout << "Ты проиргал, сопреник выбрал ножницы";
+			break;
+		}
+		cout <<'\n' << "играт будыш?";
+		cin >> str;
+		transform(str.begin(), str.end(), str.begin(), tolower);
+		if (str == "да") {}
+
+		else break;
+	}
+}
+
+
+
+задача 3
+
+#include <iostream>
+#include< cmath>
+#include<random>
+#include<string>
+
+using namespace std;
+
+
+char push_Pass(int value)
+{
+	int val1 = 1;
+	int val2 = value;
+	random_device rd;
+	mt19937 gen(rd());
+	{
+		uniform_int_distribution<> dist(val1, val2);
+
+		switch (dist(gen))
+		{
+		case(1):
+			val1 = 48;
+			val2 = 57;
+			break;
+		case(2):
+			val1 = 97;
+			val2 = 122;
+			break;
+		case(3):
+			val1 = 65;
+			val2 = 90;
+			break;
+		case(4):
+			val1 = 1;
+			val2 = 6;
+			break;
+		}
+	}
+
+	uniform_int_distribution<> dist(val1, val2);
+	return (dist(gen));
+}
+
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	using namespace std;
+
+	while (true)
+	{
+
+
+		int x;
+		cout << "выберите уровень сложности от 1-3: ";
+		cin >> x;
+		string Password;
+
+		switch (x)
+		{
+		case(1):
+			for (int i = 0; i < 5; ++i)
+			{
+				Password.push_back(push_Pass(x));
+			}
+			cout << Password;
+			break;
+		case(2):
+			for (int i = 0; i < 7; ++i)
+			{
+				Password.push_back(push_Pass(x));
+			}
+			cout << Password;
+			break;
+		case(3):
+			for (int i = 0; i < 10; ++i)
+			{
+				Password.push_back(push_Pass(x + 1));
+			}
+			cout << Password;
+			break;
+
+		}
+
+
+		cout << '\n';
+	}
+
+	return 0;
+}
+
+задание 22
+
+
+
+задача 1
+
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	using namespace std;
+
+	int x,y;
+	cout << "введи числ: ";
+	cin >> x;
+	cout << x << " делится на " << x<<'\n';
+
+	y=x / 2;
+	for (int i = y; i >= 1; --i)
+	{
+		if(x%i==0)
+		cout << x << " делится на " << i << '\n';
+	}
+
+	return 0;
+}
+
+задача 2
+
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	using namespace std;
+
+	int x,val1=0,val2=1;
+	cout << "введи количество числел фиба: ";
+	cin >> x;
+
+
+	if (x==1)
+		cout << "числа фибаначи: 0, 1";
+	else {
+
+		cout << "числа фибаначи: 0, 1, ";
+		for (int i = 3; i <= x; ++i)
+		{
+			cout << val2+val1 <<", ";
+			int valI = val2;
+			val2 += val1;
+			val1 = valI;
+
+		}
+
+	}
+
+	return 0;
+}
+
+задача 3
+
+#include <iostream>
+#include <random>
+#include <array>
+#include <vector>
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	using namespace std;
+
+
+	
+
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dist(1000, 9999);
+
+	int x = dist(gen);
+
+	cout << "Добро пожаловать в игру «Быки и коровы»!"<<'\n';
+
+	array <int, 4> arrayRand{(x/1000), ((x/100)%10),((x / 10) % 10) ,(x % 10) };
+
+	/*for (auto& val : arrayRand)
+		cout << val << '\n';*/
+
+	
+	while (true)
+	{
+
+		cout << "rand value: "<<x << '\n';
+		int value,sumKorov=0, sumBik=0;
+		cout << "Введите число: ";
+		cin>> value;
+		vector <int> arrayPerson{ (value / 1000), ((value / 100) % 10),((value / 10) % 10) ,(value % 10) };
+		//поиск на местах
+		for (int i = 0; i < 4; ++i)
+		{
+			if (arrayPerson[i] == arrayRand[i])
+				++sumKorov;
+		}
+		cout << sumKorov<<  " коровы, ";
+		//поиск наличия
+		for (int i = 0; i <4; ++i)
+		{
+			for (auto Iter = arrayPerson.begin(); Iter != arrayPerson.end(); Iter++)
+			{
+				if (*Iter == arrayRand[i])
+				{
+					++sumBik;
+					arrayPerson.erase(Iter);
+					break;
+				}
+			}
+		}
+
+		cout << sumBik << " быка " << '\n';
+		if (x == value) {
+			cout << "ты выйгал";
+			break;
+		}
+		
+	}
+	return 0;
+}
+
+
+
+задание 23
+
+
+
+задача 1
+
+
+
+задача 2
+
+#include <iostream>
+#include <random>
+#include <array>
+#include<algorithm>
+#include<vector>
+
+int main()
+{
+	setlocale(LC_ALL, "RUSSIAN");
+	using namespace std;
+
+	random_device rd;
+	mt19937 gen(rd());
+	uniform_int_distribution<> dist(1, 99);
+
+	array <int, 10> arrayRand1{ dist(gen), dist(gen),dist(gen) ,dist(gen),dist(gen), dist(gen),dist(gen) ,dist(gen),dist(gen), dist(gen) };
+	array <int, 10> arrayRand2{ dist(gen), dist(gen),dist(gen) ,dist(gen),dist(gen), dist(gen),dist(gen) ,dist(gen),dist(gen), dist(gen) };
+	vector <int> arrayResult;
+
+
+	for (auto& val : arrayRand2) {
+		auto result= find(arrayRand1.begin(), arrayRand1.end(), val);
+		if (result != arrayRand1.end())
+		{
+			auto result2 = find(arrayResult.begin(), arrayResult.end(), *result);
+			if (result2 == arrayResult.end())
+			arrayResult.push_back(*result);
+		}
+	}
+
+
+	for (auto& val : arrayRand1)
+		cout << val << '\n';
+	cout << "val2" << '\n';
+	for (auto& val : arrayRand2)
+		cout << val << '\n';
+	cout << "val3" << '\n';
+	for (auto& val : arrayResult)
+		cout << val << '\n';
+	
+
+	return 0;
+}
+
+задача 3
+
+#include <iostream>
+#include <Windows.h>
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+
+	int value=50;
+	int max=100;
+	int min=0;
+	int sum = 0;
+
+	while (true)
+	{
+		string str;
+		cout << "число  компа: " << value << '\n';
+		cout << "введите ответ: ";
+		cin >> str;
+
+		if (str == "больше")
+		{
+			min = value;
+			value += (max- min) / 2;
+
+			++sum;
+		}
+
+		else if (str == "меньше")
+		{
+			max = value;
+			value -= (max - min) / 2;
+
+			++sum;
+		}
+
+
+		if (str == "правильно")
+		{
+			break;
+		}
+
+	}
+
+	return 0;
+}
+
+
+
+задание 24
+
+
+
+задача 1
+
+#include <iostream>
+#include <Windows.h>
+#include <algorithm>
+#include <array>
+#include <vector>
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+
+	array <int, 10> arrayRand1{ 1, 6, 9, 18, 27, 36, 51, 68, 82, 101};
+	vector <int> arrayResult;
+
+	auto result = arrayRand1.begin();
+	while  (true) 
+	{
+		result = find_if(result, arrayRand1.end(), [](int a) {return a % 2 == 0; });
+		if (result != arrayRand1.end())
+		{
+			arrayResult.push_back(*result);
+			cout << *result << ", ";
+			++result;
+		}
+		else
+			break;
+	}
+
+
+
+	return 0;
+}
+
+--------------2
+
+#include <iostream>
+#include <Windows.h>
+#include <algorithm>
+#include <array>
+#include <vector>
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	using namespace std;
+
+	array <int, 10> arrayRand1{ 1, 6, 9, 18, 27, 36, 51, 68, 82, 101};
+	vector <int> arrayResult;
+
+
+		auto result = copy_if(arrayRand1.begin(), arrayRand1.end(),back_inserter(arrayResult), [](int a) {return a % 2 == 0; });
+
+		for (auto val : arrayResult)
+			cout << val << " ";
+	
+
+	return 0;
+}
+
+
+задача 2
+
+
+
+задача 3
+
+
